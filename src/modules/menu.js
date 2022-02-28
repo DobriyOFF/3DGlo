@@ -7,7 +7,7 @@ const menu = () => {
         if (e.target.matches("menu ul>li>a")) {
             e.preventDefault();
             smoothScroll(e.target);
-        } else if (e.target.classList.contains("close-btn")) {
+        } else if (e.target.classList.contains("close-btn") || !e.target.closest('.active-menu')) {
             e.preventDefault();
         } else if (e.target.closest(".menu")) {
 
