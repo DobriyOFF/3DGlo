@@ -4,7 +4,7 @@ const validateForms = () => {
     forms.forEach((item) => {
         item.addEventListener('input', (e) => {
             if (e.target.matches('.form-phone')) {
-                e.target.value = e.target.value.replace(/[^\d\(\)\-']/gi, '');
+                e.target.value = e.target.value.replace(/[^\d\(\)\-]/gi, '');
             } else if (e.target.matches('.form-email')) {
                 e.target.value = e.target.value.replace(/[^\w\-\@\.\!\~\*\']/gi, '');
             } else if (e.target.matches('.mess')) {

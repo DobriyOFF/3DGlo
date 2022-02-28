@@ -1,9 +1,11 @@
 const calculate = () => {
     const calcItem = document.querySelectorAll('.calc-item');
     calcItem.forEach((item) => {
-        item.addEventListener('input', (e) => {
-            e.target.value = e.target.value.replace(/\D+/gi, '');
-        });
+        if (!item.classList.contains("calc-type")) {
+            item.addEventListener('input', (e) => {
+                e.target.value = e.target.value.replace(/\D+/gi, '');
+            });
+        }
     })
 };
 
