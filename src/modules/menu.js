@@ -1,19 +1,22 @@
+import smoothScroll from "./smoothScroll";
 const menu = () => {
-    const menuBtn = document.querySelector('.menu');
-    const menu = document.querySelector('menu');
-    const closeBtn = menu.querySelector('.close-btn');
-    const menuItems = menu.querySelectorAll('ul>li>a');
+    const menuContent = document.querySelector('menu');
 
-    const handleMenu = () => {
-        menu.classList.toggle('active-menu');
+    const toggleMenu = (e) => {
+        // console.log(e.target.matches("menu ul>li>a"))
+        if (e.target.matches("menu ul>li>a")) {
+            e.preventDefault();
+            smoothScroll(e.target);
+        } else if (e.target.classList.contains("close-btn")) {
+            e.preventDefault();
+        } else if (e.target.closest(".menu")) {
+
+        } else {
+            return;
+        }
+        menuContent.classList.toggle("active-menu");
     }
-
-    menuBtn.addEventListener('click', handleMenu);
-    closeBtn.addEventListener('click', handleMenu);
-
-    menuItems.forEach(menuItem => {
-        menuItem.addEventListener('click', handleMenu);
-    })
+    document.addEventListener("click", (e) => toggleMenu(e));
 }
 
 export default menu;
