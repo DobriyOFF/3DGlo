@@ -6,12 +6,10 @@ import calculate from './modules/calculate'
 import validateForms from './modules/validateForms'
 import tabs from './modules/tabs'
 
-timer('26 february 2022');
+timer('01 april 2022');
 menu();
 modal();
 serviceScroll();
 calculate();
 validateForms();
 tabs()
-
-
