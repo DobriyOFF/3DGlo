@@ -68,7 +68,7 @@ const slider = () => {
 
             if (e.target.matches('#arrow-right')) {
                 currentSlide++
-            } else if (e.target.matches('#arrow-right')) {
+            } else if (e.target.matches('#arrow-left')) {
                 currentSlide--
             } else if (e.target.classList.contains('dot')) {
                 dots.forEach((dot, index) => {
