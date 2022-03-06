@@ -6,6 +6,8 @@ import calculate from './modules/calculate'
 import validateForms from './modules/validateForms'
 import tabs from './modules/tabs'
 import slider from './modules/slider'
+import calc from './modules/calc'
+
 
 timer('01 april 2022');
 menu();
@@ -15,3 +17,4 @@ calculate();
 validateForms();
 tabs();
 slider();
+calc(100)
