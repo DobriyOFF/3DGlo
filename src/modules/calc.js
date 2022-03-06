@@ -1,3 +1,7 @@
+import {
+    animate
+} from "./helper";
+
 const calc = (price = 100) => {
     const calcBlock = document.querySelector('.calc-block')
     const calcType = document.querySelector('.calc-type')
@@ -5,6 +9,8 @@ const calc = (price = 100) => {
     const calcCount = document.querySelector('.calc-count')
     const calcDay = document.querySelector('.calc-day')
     const total = document.getElementById('total')
+
+    let startAnimateValue, targetAnimateValue;
 
     const countCalc = () => {
         const calcTypeValue = +calcType.options[calcType.selectedIndex].value
@@ -30,7 +36,16 @@ const calc = (price = 100) => {
             totalValue = 0
         }
 
-        total.textContent = totalValue
+        startAnimateValue = +total.textContent;
+        targetAnimateValue = totalValue;
+
+        animate({
+            duration: 400,
+            timing: (timeFraction) => timeFraction,
+            draw(progress) {
+                total.textContent = startAnimateValue + Math.round((targetAnimateValue - startAnimateValue) * progress);
+            },
+        });
 
     }
 

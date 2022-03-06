@@ -1,28 +1,25 @@
+import {
+    animate,
+} from "./helper";
 const modal = () => {
     const modal = document.querySelector('.popup');
     const modalContent = modal.querySelector(".popup-content");
     const buttons = document.querySelectorAll('.popup-btn');
+    let startPosition = -50; // начальное положение модального-окна
+    let stopPosition = 10;
 
-    const modalAnimation = function () {
-        let num = -50; // начальное положение модального-окна
-
-        const step = function () {
-            num += 5;
-            if (num <= 30) {
-                requestAnimationFrame(step); // плавная анимация
-                modalContent.style.left = `${num}%`;
-            } else {
-                modalContent.style.left = "";
-            }
-        };
-        step();
-    };
 
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
             modal.style.display = 'block';
             if (window.outerWidth > 768) {
-                modalAnimation();
+                animate({
+                    duration: 400,
+                    timing: (timeFraction) => timeFraction,
+                    draw(progress) {
+                        modalContent.style.top = startPosition + Math.round((stopPosition - startPosition) * progress)
+                    },
+                });
             }
         })
     })
