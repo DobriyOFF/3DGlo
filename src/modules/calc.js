@@ -27,7 +27,7 @@ const calc = (price = 100) => {
         if (calcType.value && calcSquare.value) {
             totalValue = price * calcTypeValue * calcSquareValue * calcCountValue * calcDayValue
         } else {
-            totalValue = 0
+            totalValue = 0;
         }
 
         total.textContent = totalValue
