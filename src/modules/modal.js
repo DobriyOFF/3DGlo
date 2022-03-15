@@ -2,9 +2,11 @@ import {
     animate,
 } from "./helper";
 const modal = () => {
+    const btnScroll = document.getElementById('btn-scroll')
     const modal = document.querySelector('.popup');
     const modalContent = modal.querySelector(".popup-content");
     const buttons = document.querySelectorAll('.popup-btn');
+    let idScroll
     let startPosition = -50; // начальное положение модального-окна
     let stopPosition = 10;
 
@@ -27,6 +29,7 @@ const modal = () => {
     modal.addEventListener('click', (e) => {
         if (!e.target.closest('.popup-content') || e.target.classList.contains('popup-close')) {
             modal.style.display = 'none';
+            document.body.style.overflow = '' // отмена прокрутки
         }
     })
 }
