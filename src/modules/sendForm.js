@@ -4,10 +4,11 @@ const sendForm = ({
 }) => {
     const form = document.getElementById(formId)
     const statusBlock = document.createElement('div')
+    const modal = document.querySelector('.popup')
+
     const loadText = 'Загрузка...'
     const errorText = 'Ошибка...'
     const successText = 'Спасибо наш менеджер с вами свяжется'
-    const modal = document.querySelector('.popup')
 
     const validate = (list) => {
         let success = true

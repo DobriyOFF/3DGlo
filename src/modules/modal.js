@@ -6,7 +6,6 @@ const modal = () => {
     const modal = document.querySelector('.popup');
     const modalContent = modal.querySelector(".popup-content");
     const buttons = document.querySelectorAll('.popup-btn');
-    let idScroll
     let startPosition = -50; // начальное положение модального-окна
     let stopPosition = 10;
 
@@ -14,6 +13,7 @@ const modal = () => {
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
             modal.style.display = 'block';
+            modal.style.color = 'white'
             if (window.outerWidth > 768) {
                 animate({
                     duration: 400,
